@@ -24,11 +24,9 @@ def chromeStart():
           
         with open("./data/chrome.txt", "r+",encoding='utf-8') as chrome_dir:
           chrome = chrome_dir.readlines()
-        
-            
         if(chrome == ''):
           print("./data/chrome.txt 에 크롬의 위치를 입력 해주세요.")
-          
+        #chrome_cmd = '\"'+chrome[0]+'\"  --remote-debugging-port=9224 --user-data-dir="'+str(userCookieDir)+'" --disable-gpu --disable-popup-blocking --disable-dev-shm-usage --disable-plugins --disable-background-networking'
         chrome_cmd = '\"'+chrome[0]+'\"  --remote-debugging-port=9224 --user-data-dir="'+str(userCookieDir)+'" --disable-gpu --disable-popup-blocking --disable-dev-shm-usage --disable-plugins --disable-background-networking'
         options.add_experimental_option("debuggerAddress", "127.0.0.1:9224")
         p = subprocess.Popen(chrome_cmd, shell=True)
